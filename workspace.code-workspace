@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\egui_example"
+		},
+		{
+			"path": "..\\learn-wgpu"
+		}
+	],
+	"settings": {}
+}
