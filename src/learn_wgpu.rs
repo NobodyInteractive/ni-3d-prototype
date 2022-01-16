@@ -1,4 +1,5 @@
 mod the_surface;
+use the_surface as impl_mod;
 
 use winit::{
     event::*,
@@ -7,20 +8,6 @@ use winit::{
 };
 
 use async_trait::async_trait;
-struct State {
-
-    #[allow(dead_code)]
-    instance: wgpu::Instance,
-    surface: wgpu::Surface,
-    #[allow(dead_code)]
-    adapter: wgpu::Adapter,
-    device: wgpu::Device,
-    queue: wgpu::Queue,
-    config: wgpu::SurfaceConfiguration,
-    size: winit::dpi::PhysicalSize<u32>,
-    clear_color: wgpu::Color,
-}
-
 
 #[async_trait]
 trait Tutorial {
@@ -40,7 +27,7 @@ pub fn tut_main() {
     env_logger::init();
     let event_loop = EventLoop::new();
     let window = WindowBuilder::new().build(&event_loop).unwrap();
-    let mut state = pollster::block_on(State::new(&window));
+    let mut state = pollster::block_on(impl_mod::State::new(&window));
 
     event_loop.run(move | event, _, control_flow| match event {
         Event::RedrawRequested(window_id) if window_id == window.id() => {

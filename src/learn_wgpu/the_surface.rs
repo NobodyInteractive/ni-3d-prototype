@@ -1,4 +1,4 @@
-use super::{State, Tutorial};
+use super::Tutorial;
 use async_trait::async_trait;
 
 use winit::{
@@ -7,6 +7,19 @@ use winit::{
     window::{WindowBuilder, Window}
 };
 
+pub struct State {
+
+    #[allow(dead_code)]
+    pub instance: wgpu::Instance,
+    pub surface: wgpu::Surface,
+    #[allow(dead_code)]
+    pub adapter: wgpu::Adapter,
+    pub device: wgpu::Device,
+    pub queue: wgpu::Queue,
+    pub config: wgpu::SurfaceConfiguration,
+    pub size: winit::dpi::PhysicalSize<u32>,
+    pub clear_color: wgpu::Color,
+}
 
 #[async_trait]
 impl Tutorial for State {
