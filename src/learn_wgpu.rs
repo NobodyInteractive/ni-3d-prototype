@@ -1,5 +1,5 @@
-mod the_surface;
-use the_surface as impl_mod;
+mod the_pipeline;
+use the_pipeline as impl_mod;
 
 use winit::{
     event::*,
@@ -15,7 +15,7 @@ trait Tutorial {
     
     fn resize(&mut self, new_size: winit::dpi::PhysicalSize<u32>);
     
-    fn input(&mut self, eevnt: &WindowEvent) -> bool;
+    fn input(&mut self, event: &WindowEvent) -> bool;
     
     fn update(&mut self) ;
     
