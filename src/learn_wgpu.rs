@@ -8,11 +8,17 @@ use winit::{
 
 use async_trait::async_trait;
 struct State {
+
+    #[allow(dead_code)]
+    instance: wgpu::Instance,
     surface: wgpu::Surface,
+    #[allow(dead_code)]
+    adapter: wgpu::Adapter,
     device: wgpu::Device,
     queue: wgpu::Queue,
     config: wgpu::SurfaceConfiguration,
-    size: winit::dpi::PhysicalSize<u32>
+    size: winit::dpi::PhysicalSize<u32>,
+    clear_color: wgpu::Color,
 }
 
 
@@ -70,7 +76,10 @@ pub fn tut_main() {
                 }
                 _ => {}
             }
-        },
+        }
+        Event::MainEventsCleared => {
+            window.request_redraw();
+        }
         _ =>   {}
     });    
 }
